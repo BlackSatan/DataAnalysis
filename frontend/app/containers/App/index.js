@@ -12,14 +12,22 @@
  */
 
 import React from 'react';
+import { compose } from 'redux';
 import { Switch, Route } from 'react-router-dom';
 
+import injectSaga from 'utils/injectSaga';
+import injectReducer from 'utils/injectReducer';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import AppBar from 'components/AppBar';
 
-export default function App() {
+import reducer, { saga } from './duck';
+
+
+function App() {
   return (
     <div>
+      <AppBar />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route component={NotFoundPage} />
@@ -27,3 +35,8 @@ export default function App() {
     </div>
   );
 }
+
+export default compose(
+  injectSaga({ key: 'app', saga }),
+  injectReducer({ key: 'app', reducer }),
+)(App);
