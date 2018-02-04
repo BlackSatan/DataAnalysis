@@ -3,3 +3,12 @@
   padding: 15px;
   background: rgba(0, 0, 0, .1);
 }
+.load-file__threshold {
+  width: 80px;
+}
+.load-file__loader {
+  width: 250px;
+}
+.load-file__button {
+  margin-left: 35px;
+}

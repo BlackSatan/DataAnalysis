@@ -1,0 +1,24 @@
+.data-output {
+  margin: 0 10px;
+}
+.data-output__cov-matrix {
+  width: 550px;
+  margin: 10px;
+  padding: 10px;
+}
+.data-output__cov-matrix h2 {
+  padding: 15px;
+  text-align: center;
+}
+.data-output__two-matrix {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.data-output__matrix {
+  padding: 10px;
+  text-align: center;
+}
+.data-output__info {
+  padding: 10px;
+}

@@ -58,8 +58,8 @@ function* watchResponses(responsesChannel) {
   while (true) {
     const action = yield take(responsesChannel);
     yield put({
-      type: `@ws\\${action}`,
       ...action,
+      type: `@ws/${action.type}`,
     });
   }
 }
