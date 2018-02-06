@@ -2,6 +2,7 @@ import asyncio
 import json
 import websockets
 import pca
+import cluster
 import numpy as np
 
 
@@ -28,6 +29,17 @@ async def consumer_handler(websocket, path):
             await websocket.send(json.dumps({
                 'type': 'mgk',
                 'data': pca.work(params, threshold)
+            }, cls=NumpyEncoder))
+        elif type == 'cluster':
+            data = response.get('data')
+            params = data.get('params')
+            x = int(data.get('x'))
+            y = int(data.get('y'))
+            clusters = int(data.get('clusters'))
+            distance = data.get('distance')
+            await websocket.send(json.dumps({
+                'type': 'cluster',
+                'data': cluster.work(params, x, y, clusters, distance)
             }, cls=NumpyEncoder))
         else:
             await websocket.send(json.dumps({

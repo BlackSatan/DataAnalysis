@@ -18,6 +18,8 @@ import { Switch, Route } from 'react-router-dom';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import HomePage from 'containers/HomePage/Loadable';
+import Factor from 'containers/Factor/Loadable';
+import Cluster from 'containers/Cluster/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import AppBar from 'components/AppBar';
 
@@ -29,6 +31,8 @@ function App() {
     <div>
       <AppBar />
       <Switch>
+        <Route path="/cluster" component={Cluster} />
+        <Route path="/factor" component={Factor} />
         <Route exact path="/" component={HomePage} />
         <Route component={NotFoundPage} />
       </Switch>
