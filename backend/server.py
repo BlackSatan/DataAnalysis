@@ -3,6 +3,7 @@ import json
 import websockets
 import pca
 import cluster
+import ts
 import numpy as np
 
 
@@ -40,6 +41,18 @@ async def consumer_handler(websocket, path):
             await websocket.send(json.dumps({
                 'type': 'cluster',
                 'data': cluster.work(params, x, y, clusters, distance)
+            }, cls=NumpyEncoder))
+        elif type == 'ts':
+            data = response.get('data')
+            await websocket.send(json.dumps({
+                'type': 'ts',
+                'data': ts.get_data(data)
+            }, cls=NumpyEncoder))
+        elif type == 'ts-rolling':
+            data = response.get('data')
+            await websocket.send(json.dumps({
+                'type': 'ts-rolling',
+                'data': ts.get_rolling(data.get('data'), data.get('window'))
             }, cls=NumpyEncoder))
         else:
             await websocket.send(json.dumps({

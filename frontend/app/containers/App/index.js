@@ -20,6 +20,7 @@ import injectReducer from 'utils/injectReducer';
 import HomePage from 'containers/HomePage/Loadable';
 import Factor from 'containers/Factor/Loadable';
 import Cluster from 'containers/Cluster/Loadable';
+import TimeSeries from 'containers/TimeSeries/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import AppBar from 'components/AppBar';
 
@@ -33,6 +34,7 @@ function App() {
       <Switch>
         <Route path="/cluster" component={Cluster} />
         <Route path="/factor" component={Factor} />
+        <Route path="/ts" component={TimeSeries} />
         <Route exact path="/" component={HomePage} />
         <Route component={NotFoundPage} />
       </Switch>

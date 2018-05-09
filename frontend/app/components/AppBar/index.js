@@ -20,11 +20,12 @@ function SimpleAppBar(props) {
       <AppBar position="static" color="default">
         <Toolbar>
           <Typography type="title" color="inherit">
-            Технології обробки даних
+            Часові Ряди
           </Typography>
-          <Button component={Link} to="/" color="inherit">PCA</Button>
-          <Button component={Link} to="/factor" color="inherit">Factor Analysis</Button>
-          <Button component={Link} to="/cluster" color="inherit">Cluster Analysis</Button>
+          {/*<Button component={Link} to="/" color="inherit">PCA</Button>*/}
+          {/*<Button component={Link} to="/factor" color="inherit">Factor Analysis</Button>*/}
+          {/*<Button component={Link} to="/cluster" color="inherit">Cluster Analysis</Button>*/}
+          <Button component={Link} to="/ts" color="inherit">Time Series</Button>
         </Toolbar>
       </AppBar>
     </div>
